@@ -1,8 +1,7 @@
 // lib/cohere.ts
 import axios from "axios";
 
-const COHERE_API_KEY = "waxNP4HZxgHQWVPLi4OM532H7mdtO9nMem6EFm94";
-console.log("Cohere API Key:", COHERE_API_KEY); // Debugging line
+const COHERE_API_KEY = process.env.COHERE_API_KEY;
 
 export async function generateResume(jobDescription: string, resumeData: any) {
   const prompt = `
@@ -22,7 +21,6 @@ Return only the tailored resume in Markdown format.
     {
       model: "command-r-plus",
       prompt,
-      max_tokens: 1000,
       temperature: 0.4,
     },
     {

@@ -7,7 +7,6 @@ export default async function handler(
   res: NextApiResponse
 ) {
   if (req.method !== "POST") {
-    console.error("Invalid request method:", req.method);
     return res.status(405).end();
   }
 
